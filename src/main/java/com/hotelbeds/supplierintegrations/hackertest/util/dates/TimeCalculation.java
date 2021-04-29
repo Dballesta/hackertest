@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 
-public class DatesComparator {
+public class TimeCalculation {
 
 
     // Entry example Thu, 21 Dec 2000 16:01:07 +0200

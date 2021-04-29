@@ -4,14 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DatesComparatorTest {
+class TimeCalculationTest {
 
     @Test
     void getDiffInMinutesShouldReturn0() {
         String date1 = "Thu, 21 Dec 2000 16:00:00 +0200";
         String date2 = "Thu, 21 Dec 2000 16:00:00 +0200";
 
-        long diffInMin = DatesComparator.getDiffInMinutes(date1,date2);
+        long diffInMin = TimeCalculation.getDiffInMinutes(date1,date2);
 
         assertEquals(0,diffInMin);
     }
@@ -21,7 +21,7 @@ class DatesComparatorTest {
         String date1 = "Thu, 21 Dec 2000 16:00:59 +0200";
         String date2 = "Thu, 21 Dec 2000 16:00:00 +0200";
 
-        long diffInMin = DatesComparator.getDiffInMinutes(date1,date2);
+        long diffInMin = TimeCalculation.getDiffInMinutes(date1,date2);
 
         assertEquals(0,diffInMin);
     }
@@ -31,7 +31,7 @@ class DatesComparatorTest {
         String date1 = "Thu, 21 Dec 2000 16:00:00 +0200";
         String date2 = "Thu, 21 Dec 2000 16:00:59 +0200";
 
-        long diffInMin = DatesComparator.getDiffInMinutes(date1,date2);
+        long diffInMin = TimeCalculation.getDiffInMinutes(date1,date2);
 
         assertEquals(0,diffInMin);
     }
@@ -41,7 +41,7 @@ class DatesComparatorTest {
         String date1 = "Thu, 21 Dec 2000 16:02:00 +0200";
         String date2 = "Thu, 21 Dec 2000 16:00:00 +0200";
 
-        long diffInMin = DatesComparator.getDiffInMinutes(date1,date2);
+        long diffInMin = TimeCalculation.getDiffInMinutes(date1,date2);
 
         assertEquals(2,diffInMin);
     }
@@ -51,7 +51,7 @@ class DatesComparatorTest {
         String date1 = "Thu, 21 Dec 2000 16:00:00 +0200";
         String date2 = "Thu, 21 Dec 2000 16:02:00 +0200";
 
-        long diffInMin = DatesComparator.getDiffInMinutes(date1,date2);
+        long diffInMin = TimeCalculation.getDiffInMinutes(date1,date2);
 
         assertEquals(2,diffInMin);
     }
@@ -61,7 +61,7 @@ class DatesComparatorTest {
         String date1 = "Thu, 21 Dec 2000 16:00:00 +0200";
         String date2 = "Thu, 21 Dec 2000 16:00:00 +0100";
 
-        long diffInMin = DatesComparator.getDiffInMinutes(date1,date2);
+        long diffInMin = TimeCalculation.getDiffInMinutes(date1,date2);
 
         assertEquals(60,diffInMin);
     }
