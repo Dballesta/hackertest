@@ -1,17 +1,30 @@
 package com.hotelbeds.supplierintegrations.hackertest.detector;
 
+import com.hotelbeds.supplierintegrations.hackertest.detector.helper.parser.LogSignInLineParser;
+import com.hotelbeds.supplierintegrations.hackertest.detector.helper.parser.LogSignInLineParserImpl;
+import com.hotelbeds.supplierintegrations.hackertest.detector.model.LogSignInLine;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class HackerDetectorImpl implements HackerDetector {
+
+    private LogSignInLineParser logSignInLineParser;
 
     @Override
     public String parseLine(String line) {
 
-        //TODO: Convert received line into multiple vars and Create object for it
-        String[] splitLines = line.split(",");
-        String ip = splitLines[0];
-        String epoch = splitLines[1];
-        String signInStatus = splitLines[2];
-        String name = splitLines[3];
+        logSignInLineParser = new LogSignInLineParserImpl();
 
-        return null;
+        LogSignInLine logSignInLine = logSignInLineParser.parse(line);
+
+        if (logSignInLine.getSignInStatus().equals(LogSignInLine.SignInStatus.SIGNIN_SUCCESS)) {
+            return null;
+        } else {
+            //TODO: Add Counters With static Map
+            return "TODO";
+        }
+
     }
+
 }
